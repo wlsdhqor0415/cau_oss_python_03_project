@@ -28,6 +28,10 @@ def start_process(path):
             """
             parking_spot_manager.print_spots(spots)
         elif select == 2:
+            """
+            menu의 2번 [fliter] 기능은 필터를 할 기준의 키의 종류 5개 중 하나를 선택하는 메뉴를
+            출력하는 것입니다.
+            """
             print("---filter by---")
             print("[1] name")
             print("[2] city")
@@ -36,28 +40,45 @@ def start_process(path):
             print("[5] location")
             select = int(input('type:'))
             if select == 1:
+                """
+                fliter의 1번 [name] 기능은 keyword를 입력받고
+                parking_spot_manager 모듈의 filter_by_name 함수를 호출하는 것입니다.
+                """
                 keyword = input('type name:')
-                print("not implemented yet")
-                # fill this block
+                spots = parking_spot_manager.filter_by_name(spots, keyword)
             elif select == 2:
+                """
+                fliter의 2번 [city] 기능은 keyword를 입력받고
+                parking_spot_manager 모듈의 filter_by_city 함수를 호출하는 것입니다.
+                """
                 keyword = input('type city:')
-                print("not implemented yet")
-                # fill this block
+                spots = parking_spot_manager.filter_by_city(spots, keyword)
             elif select == 3:
+                """
+                fliter의 3번 [district] 기능은 keyword를 입력받고
+                parking_spot_manager 모듈의 filter_by_district 함수를 호출하는 것입니다.
+                """
                 keyword = input('type district:')
-                print("not implemented yet")
-                # fill this block
+                spots = parking_spot_manager.filter_by_district(spots, keyword)
             elif select == 4:
+                """
+                fliter의 4번 [ptype] 기능은 keyword를 입력받고
+                parking_spot_manager 모듈의 filter_by_ptype 함수를 호출하는 것입니다.
+                """
                 keyword = input('type ptype:')
-                print("not implemented yet")
-                # fill this block
+                spots = parking_spot_manager.filter_by_ptype(spots, keyword)
             elif select == 5:
+                """
+                fliter의 5번 [location] 기능은 최대 경도, 최소 경도, 
+                최대 위도, 최소 위도 값을 입력받고 그 값들을 locations 튜플에 저장하고
+                parking_spot_manager 모듈의 filter_by_name 함수를 호출하는 것입니다.
+                """
                 min_lat = float(input('type min lat:'))
                 max_lat = float(input('type max lat:'))
                 min_lon = float(input('type min long:'))
                 max_lon = float(input('type max long:'))
-                print("not implemented yet")
-                # fill this block
+                locations = (min_lat, max_lat, min_lon, max_lon)
+                spots = parking_spot_manager.filter_by_location(spots, locations)
             else:
                 print("invalid input")
         elif select == 3:
