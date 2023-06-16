@@ -82,13 +82,16 @@ def start_process(path):
             else:
                 print("invalid input")
         elif select == 3:
+            """
+            menu의 3번 [sort] 기능은 parking_spot_manager 모듈의 
+            sort_by_keyword 함수를 호출하는 것입니다.
+            """
             keywords = ['name', 'city', 'district', 'ptype', 'latitude', 'longitude']
             print("---sort by---")
             print(keywords)
             keyword = input('type keyword:')
             if keyword in keywords:
-                print("not implemented yet")
-                # fill this block
+                spots = parking_spot_manager.sort_by_keyword(spots, keyword)
             else: print("invalid input")
         elif select == 4:
             """

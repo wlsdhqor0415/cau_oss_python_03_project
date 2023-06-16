@@ -5,6 +5,7 @@ str_list_to_class_list 함수를 통해 parking_spot 클래스 객체 리스트�
 print_spots 함수를 통해 리스트의 원소 개수와 리스트에 저장된 모든 객체의 값을 출력합니다.
 filter_by_name 함수, filter_by_city 함수, filter_by_district 함수, filter_by_ptype 함수,
 filter_by_location 함수는 parking_spot 클래스 객체 리스트를 필터링한 후 생성된 새로운 리스트를 반환합니다.
+sort_by_keyword 함수는 parking_spot 클래스 객체의 리스트의 정렬을 수행합니다.
 """
 class parking_spot:
     """
@@ -181,6 +182,20 @@ def filter_by_location(spots, locations):
                                and e.get('latitude')  <= locations[1] \
                                and e.get('longitude') >= locations[2] \
                                and e.get('longitude') <= locations[3])]
+    return mylist
+
+def sort_by_keyword(spots, keyword):
+    """
+    sort_by_keyword 함수는 parking_spot 클래스 객체의 리스트[spots]와 정렬기준[keyword]을
+    매개변수로 받아 정렬을 수행합니다.
+    Args:
+        spots (list): parking_spot 클래스 객체의 리스트입니다.
+        keyword (str): 정렬할 때 사용할 정렬기준으로 parking_spot 클래스 객체가 
+                       저장하고 있는 딕셔러니 key값과 동일한 목록을 지원합니다.
+    Returns:
+        list: 정렬된 리스트를 반환합니다.
+    """
+    mylist = sorted(spots, key = lambda spot: spot.get(keyword))
     return mylist
 
 # 각 단계별로 테스트 (테스트할때 주석해제 후 사용)
